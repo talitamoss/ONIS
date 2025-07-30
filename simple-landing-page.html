@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Stay Updated</title>
+    <title>ONIS - Unite. Empower. Regenerate.</title>
     <style>
         * {
             margin: 0;
@@ -14,64 +14,108 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Subtle animated background effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(30, 144, 255, 0.1) 0%, transparent 50%);
+            animation: drift 20s ease-in-out infinite;
+        }
+        
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, -30px); }
         }
         
         .container {
             max-width: 600px;
             padding: 40px 20px;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #2c3e50;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 700;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 1s ease-out;
         }
         
-        .subtitle {
-            font-size: 1.25rem;
-            color: #6c757d;
-            margin-bottom: 40px;
-            line-height: 1.8;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .content {
-            text-align: left;
+            text-align: center;
             margin-bottom: 50px;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
         
         .content p {
-            margin-bottom: 15px;
-            color: #495057;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #b8b8b8;
+            font-weight: 300;
         }
         
         .signup-section {
-            background: white;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
             padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
         
         .signup-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
-            color: #2c3e50;
+            background: linear-gradient(135deg, #8a2be2 0%, #1e90ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
         }
         
         .signup-subtitle {
-            color: #6c757d;
+            color: #888;
             margin-bottom: 25px;
+            font-weight: 300;
         }
         
         .signup-form {
@@ -83,44 +127,78 @@
         
         .email-input {
             flex: 1;
-            padding: 12px 20px;
-            border: 2px solid #e9ecef;
-            border-radius: 5px;
+            padding: 14px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             font-size: 16px;
-            transition: border-color 0.3s;
+            color: #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .email-input::placeholder {
+            color: #666;
         }
         
         .email-input:focus {
             outline: none;
-            border-color: #4CAF50;
+            border-color: #8a2be2;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2);
         }
         
         .submit-btn {
-            padding: 12px 30px;
-            background-color: #4CAF50;
+            padding: 14px 35px;
+            background: linear-gradient(135deg, #8a2be2 0%, #1e90ff 100%);
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
         }
         
         .submit-btn:hover {
-            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
         }
         
         .success-message {
             display: none;
-            color: #4CAF50;
+            color: #8a2be2;
             margin-top: 20px;
             font-weight: 500;
+            padding: 15px;
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
         }
         
         @media (max-width: 480px) {
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+            
+            .content p {
+                font-size: 1.1rem;
             }
             
             .signup-form {
@@ -135,20 +213,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Our Community</h1>
-        <p class="subtitle">Join us on an exciting journey of innovation and growth</p>
+        <h1>Welcome to ONIS</h1>
         
         <div class="content">
-            <p>We're building something special, and we'd love for you to be part of it from the very beginning.</p>
-            
-            <p>Our mission is to create meaningful connections and deliver valuable insights that matter to you. Whether you're interested in industry trends, exclusive updates, or early access to what we're building, you've come to the right place.</p>
-            
-            <p>By joining our newsletter, you'll be the first to know about important announcements, special offers, and the launch of our exciting new initiatives.</p>
+            <p>ONIS is a global community uniting through an innovative digital platform to empower Earth's change-makers and co-create a new regeneration economy.</p>
         </div>
         
         <div class="signup-section">
-            <h2 class="signup-title">Stay in the Loop</h2>
-            <p class="signup-subtitle">Get exclusive updates delivered to your inbox</p>
+            <h2 class="signup-title">Join the Journey</h2>
+            <p class="signup-subtitle">Be part of the transformation</p>
             
             <form class="signup-form" id="newsletterForm">
                 <input 
@@ -162,7 +235,7 @@
             </form>
             
             <div class="success-message" id="successMessage">
-                Thank you for subscribing! We'll be in touch soon.
+                Welcome aboard! You're now part of something extraordinary.
             </div>
         </div>
     </div>
